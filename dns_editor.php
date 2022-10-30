@@ -125,18 +125,18 @@ UI::view('user/dns-editor.html.twig', [
 	'listing' => Listing::format($collection, $dns_list_data, 'dns_list', ['domain_id' => $domain_id]),
 	'actions_links' => [
 		[
-			'class' => 'btn-secondary',
+			'class' => 'btn-outline-secondary',
 			'href' => $linker->getLink([
 				'section' => 'domains',
 				'page' => 'domains',
 				'action' => 'edit',
 				'id' => $domain_id
 			]),
-			'label' => lng('panel.edit'),
+			'label' => lng('admin.domain_edit'),
 			'icon' => 'fa-solid fa-pen'
 		],
 		[
-			'class' => 'btn-secondary',
+			'class' => 'btn-outline-primary',
 			'href' => $linker->getLink(['section' => 'domains', 'page' => 'domains']),
 			'label' => lng('menue.domains.domains'),
 			'icon' => 'fa-solid fa-globe'

@@ -16,8 +16,8 @@
 
 	<!-- Range -->
 	<!-- TODO: set url on change. e.g.: ?param=days:7 -->
-	<div class="d-flex justify-content-end">
-		<select class="form-select mb-4 w-auto mt-n4" aria-label="select the traffic range" name="range" data-baseref="{{ linker({'section':'traffic'}) }}">
+	<div class="d-flex justify-content-center justify-content-md-end">
+		<select class="form-select mb-3 mb-md-4 w-auto mt-md-n4" aria-label="select the traffic range" name="range" data-baseref="{{ linker({'section':'traffic'}) }}">
 			<option value="hours:24" {% if range == 'hours:24' %}selected{% endif %}>last 24 hours</option>
 			<option value="days:7" {% if range == 'days:7' %}selected{% endif %}>last 7 days</option>
 			<option value="days:30" {% if range == 'days:30' %}selected{% endif %}>last 30 days</option>
@@ -34,32 +34,36 @@
 		</select>
 	</div>
 
-	<div class="row row-cols-1 row-cols-md-2 g-0 bg-white rounded shadow-sm mb-4">
-		<div class="col p-3 border-end">
-			<canvas id="trafficsummary" style="max-height:30vh;"></canvas>
-		</div>
-		<div class="col p-3 border-end">
-			<canvas id="customersummary" style="max-height:30vh;"></canvas>
+	<div class="card">
+		<div class="row row-cols-1 row-cols-md-2 g-0">
+			<div class="col p-3 border-end">
+				<canvas id="trafficsummary" style="max-height:30vh;"></canvas>
+			</div>
+			<div class="col p-3 border-end">
+				<canvas id="customersummary" style="max-height:30vh;"></canvas>
+			</div>
 		</div>
 	</div>
 
 	<!-- Overview for given range -->
-	<div class="row row-cols-2 row-cols-md-4 g-0 bg-white rounded shadow-sm mb-4">
-		<div class="col p-3 border-end">
-			<h3>{{ metrics.total|formatBytes }}</h3>
-			<span>Total</span>
-		</div>
-		<div class="col p-3 border-end">
-			<h3>{{ metrics.http|formatBytes }}</h3>
-			<span>HTTP</span>
-		</div>
-		<div class="col p-3 border-end">
-			<h3>{{ metrics.ftp|formatBytes }}</h3>
-			<span>FTP</span>
-		</div>
-		<div class="col p-3 border-end">
-			<h3>{{ metrics.mail|formatBytes }}</h3>
-			<span>Mail</span>
+	<div class="card">
+		<div class="row row-cols-2 row-cols-md-4 g-0">
+			<div class="col p-3 border-end">
+				<h3>{{ metrics.total|formatBytes }}</h3>
+				<span>Total</span>
+			</div>
+			<div class="col p-3 border-end">
+				<h3>{{ metrics.http|formatBytes }}</h3>
+				<span>HTTP</span>
+			</div>
+			<div class="col p-3 border-end">
+				<h3>{{ metrics.ftp|formatBytes }}</h3>
+				<span>FTP</span>
+			</div>
+			<div class="col p-3 border-end">
+				<h3>{{ metrics.mail|formatBytes }}</h3>
+				<span>Mail</span>
+			</div>
 		</div>
 	</div>
 

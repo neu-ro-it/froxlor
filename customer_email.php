@@ -40,6 +40,7 @@ use Froxlor\UI\Panel\UI;
 use Froxlor\UI\Request;
 use Froxlor\UI\Response;
 use Froxlor\Validate\Check;
+use Froxlor\CurrentUser;
 
 // redirect if this customer page is hidden via settings
 if (Settings::IsInList('panel.customer_hide_options', 'email')) {
@@ -71,7 +72,7 @@ if ($page == 'overview' || $page == 'emails') {
 		$emaildomains_count = $result2['emaildomains'];
 
 		$actions_links = false;
-		if (($userinfo['emails_used'] < $userinfo['emails'] || $userinfo['emails'] == '-1') && $emaildomains_count != 0) {
+		if (CurrentUser::canAddResource('emails')) {
 			$actions_links = [
 				[
 					'href' => $linker->getLink(['section' => 'email', 'page' => $page, 'action' => 'add']),
@@ -285,7 +286,26 @@ if ($page == 'overview' || $page == 'emails') {
 
 				UI::view('user/form.html.twig', [
 					'formaction' => $linker->getLink(['section' => 'email', 'id' => $id]),
-					'formdata' => $account_add_data['emails_addaccount']
+					'formdata' => $account_add_data['emails_addaccount'],
+					'actions_links' => [
+						[
+							'class' => 'btn-secondary',
+							'href' => $linker->getLink([
+								'section' => 'email',
+								'page' => 'emails',
+								'action' => 'edit',
+								'id' => $id
+							]),
+							'label' => lng('emails.emails_edit'),
+							'icon' => 'fa-solid fa-pen'
+						],
+						[
+							'class' => 'btn-secondary',
+							'href' => $linker->getLink(['section' => 'email', 'page' => 'emails']),
+							'label' => lng('menue.email.emails'),
+							'icon' => 'fa-solid fa-envelope'
+						]
+					],
 				]);
 			}
 		} else {
@@ -324,7 +344,26 @@ if ($page == 'overview' || $page == 'emails') {
 
 				UI::view('user/form.html.twig', [
 					'formaction' => $linker->getLink(['section' => 'email', 'id' => $id]),
-					'formdata' => $account_changepw_data['emails_accountchangepasswd']
+					'formdata' => $account_changepw_data['emails_accountchangepasswd'],
+					'actions_links' => [
+						[
+							'class' => 'btn-secondary',
+							'href' => $linker->getLink([
+								'section' => 'email',
+								'page' => 'emails',
+								'action' => 'edit',
+								'id' => $id
+							]),
+							'label' => lng('emails.emails_edit'),
+							'icon' => 'fa-solid fa-pen'
+						],
+						[
+							'class' => 'btn-secondary',
+							'href' => $linker->getLink(['section' => 'email', 'page' => 'emails']),
+							'label' => lng('menue.email.emails'),
+							'icon' => 'fa-solid fa-envelope'
+						]
+					],
 				]);
 			}
 		}
@@ -358,7 +397,26 @@ if ($page == 'overview' || $page == 'emails') {
 
 				UI::view('user/form.html.twig', [
 					'formaction' => $linker->getLink(['section' => 'email', 'id' => $id]),
-					'formdata' => $quota_edit_data['emails_accountchangequota']
+					'formdata' => $quota_edit_data['emails_accountchangequota'],
+					'actions_links' => [
+						[
+							'class' => 'btn-secondary',
+							'href' => $linker->getLink([
+								'section' => 'email',
+								'page' => 'emails',
+								'action' => 'edit',
+								'id' => $id
+							]),
+							'label' => lng('emails.emails_edit'),
+							'icon' => 'fa-solid fa-pen'
+						],
+						[
+							'class' => 'btn-secondary',
+							'href' => $linker->getLink(['section' => 'email', 'page' => 'emails']),
+							'label' => lng('menue.email.emails'),
+							'icon' => 'fa-solid fa-envelope'
+						]
+					],
 				]);
 			}
 		}
@@ -425,7 +483,26 @@ if ($page == 'overview' || $page == 'emails') {
 
 					UI::view('user/form.html.twig', [
 						'formaction' => $linker->getLink(['section' => 'email', 'id' => $id]),
-						'formdata' => $forwarder_add_data['emails_addforwarder']
+						'formdata' => $forwarder_add_data['emails_addforwarder'],
+						'actions_links' => [
+							[
+								'class' => 'btn-secondary',
+								'href' => $linker->getLink([
+									'section' => 'email',
+									'page' => 'emails',
+									'action' => 'edit',
+									'id' => $id
+								]),
+								'label' => lng('emails.emails_edit'),
+								'icon' => 'fa-solid fa-pen'
+							],
+							[
+								'class' => 'btn-secondary',
+								'href' => $linker->getLink(['section' => 'email', 'page' => 'emails']),
+								'label' => lng('menue.email.emails'),
+								'icon' => 'fa-solid fa-envelope'
+							]
+						],
 					]);
 				}
 			}

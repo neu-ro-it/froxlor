@@ -32,29 +32,33 @@ return [
 		'title' => lng('domains.ssl_certificates'),
 		'icon' => 'fa-solid fa-shield',
 		'self_overview' => ['section' => 'domains', 'page' => 'sslcertificates'],
-		'default_sorting' => ['domains.domain_ace' => 'asc'],
+		'default_sorting' => ['d.domain' => 'asc'],
 		'columns' => [
 			'd.domain' => [
 				'label' => lng('domains.domainname'),
-				'field' => 'domains.domain_ace',
+				'field' => 'domain',
 				'callback' => [Domain::class, 'domainWithCustomerLink'],
 			],
 			'c.domain' => [
 				'label' => lng('ssl_certificates.certificate_for'),
 				'field' => 'domain',
 				'callback' => [SSLCertificate::class, 'domainWithSan'],
+				'searchable' => false,
 			],
 			'c.issuer' => [
 				'label' => lng('ssl_certificates.issuer'),
 				'field' => 'issuer',
+				'searchable' => false,
 			],
 			'c.validfromdate' => [
 				'label' => lng('ssl_certificates.valid_from'),
 				'field' => 'validfromdate',
+				'searchable' => false,
 			],
 			'c.validtodate' => [
 				'label' => lng('ssl_certificates.valid_until'),
 				'field' => 'validtodate',
+				'searchable' => false,
 			],
 		],
 		'visible_columns' => Listing::getVisibleColumnsForListing('sslcertificates_list', [

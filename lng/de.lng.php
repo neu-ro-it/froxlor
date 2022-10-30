@@ -301,6 +301,7 @@ return [
 		'misc' => 'Sonstiges',
 		'fpmsettings' => [
 			'addnew' => 'Neue PHP Version erstellen',
+			'edit' => 'PHP version bearbeiten',
 		],
 		'phpconfig' => [
 			'template_replace_vars' => 'Variablen, die in den Konfigurationen ersetzt werden',
@@ -2024,6 +2025,7 @@ Vielen Dank, Ihr Administrator',
 		],
 		'createstdsubdom_default' => [
 			'title' => 'Standardwert für "Standardsubdomain anlegen" bei Erstellung eines Kunden',
+			'description' => '',
 		],
 		'froxlorusergroup' => [
 			'title' => 'Benutzerdefinierte Gruppe für alle Kunden-Benutzer',
@@ -2115,6 +2117,7 @@ Vielen Dank, Ihr Administrator',
 		'http' => 'HTTP',
 		'ftp' => 'FTP',
 		'mail' => 'Mail',
+		'nocustomers' => 'Es wird mindestens ein Kunde benötigt um die Traffic Statistiken anzuzeigen.',
 	],
 	'translator' => '',
 	'update' => [

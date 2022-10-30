@@ -306,6 +306,7 @@ return [
 		'misc' => 'Miscellaneous',
 		'fpmsettings' => [
 			'addnew' => 'Create new PHP version',
+			'edit' => 'Change PHP version'
 		],
 		'phpconfig' => [
 			'template_replace_vars' => 'Variables that will be replaced in the configs',
@@ -2141,6 +2142,7 @@ Yours sincerely, your administrator',
 		],
 		'createstdsubdom_default' => [
 			'title' => 'Preselected value for "Create standard subdomain" when creating a customer',
+			'description' => '',
 		],
 		'froxlorusergroup' => [
 			'title' => 'Custom system group for all customer users',
@@ -2241,6 +2243,7 @@ Yours sincerely, your administrator',
 		'http' => 'HTTP',
 		'ftp' => 'FTP',
 		'mail' => 'Mail',
+		'nocustomers' => 'You need at least one customer to view the traffic reports.',
 	],
 	'translator' => '',
 	'update' => [
